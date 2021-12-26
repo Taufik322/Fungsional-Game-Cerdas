@@ -1,4 +1,3 @@
-from collections import OrderedDict
 from operator import getitem
 import random
 
@@ -24,28 +23,28 @@ users = {
 }
 
 questions = ["1. Berapakah hasil dari 1 + 1?",
-             "2. Siapa nama bapak Ajeng?",
-             "3. Benar atau Salah... Nama bapak Ajeng adalah Asep",
-             "4. Di kota manakah Ajeng dilahirkan?",
-             "5. Benar atau Salah... Nama terakhir Ajeng adalah Prameswati"]
+             "2. Apa nama ibu kota Indonesia?",
+             "3. Benar atau Salah... Mata uang negara Indonesia adalah rupiah",
+             "4. Siapa nama presiden pertama negara Indonesia?",
+             "5. Benar atau Salah... Bahasa pemrograman Python memerlukan titik koma"]
 
 answer_choices = ["a)1\nb)2\nc)3\nd)4\n:",
-                  "a)Joko Widodo\nb)Soeharto\nc)Donald Trump\nd)Asep\n:",
+                  "a)Malang\nb)Jakarta\nc)Penajam\nd)Bandung\n:",
                   ":",
-                  "a)Makasar\nb)Manado\nc)Malang\nd)Magelang\n:",
+                  "a)Joko Widodo\nb)Soekarno\nc)Soeharto\nd)Megawati\n:",
                   ":"]
 
 correct_choices = [{"b", "2"},
-                   {"d", "Asep"},
+                   {"c", "Penajam"},
                    {"benar", "b"},
-                   {"a", "Makasar"},
+                   {"b", "Soekarno"},
                    {"salah", "s"}]
 
 answers = ["1 + 1 adalah 2",
-           "Nama bapak Ajeng adalah Asep",
-           "Nama bapak Ajeng adalah Asep",
-           "Ajeng lahir di kota Makasar",
-           "Nama terakhir Ajeng adalah Prameswari"]
+           "Nama ibu kota Indonesia adalah Penajam",
+           "Mata uang negara Indonesia adalah rupiah",
+           "Nama presiden pertaman negara Indonesia adalah Soekarno",
+           "Bahasa pemrograman Python tidak memerlukan titik koma"]
 
 def plusScore():
     for sortir in users:
@@ -276,8 +275,6 @@ def scores():
     print(f'{"="*7}PAPAN SKOR{"="*7}')
     for i in range(len(ranks)):
         print(f'{i+1}. {str(ranks[i][1]["username"])}        {str(ranks[i][1]["point"])}' )
-
-
 
 
 def login():

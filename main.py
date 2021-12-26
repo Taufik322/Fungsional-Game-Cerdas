@@ -45,6 +45,11 @@ answers = ["1 + 1 adalah 2",
            "Ajeng lahir di kota Makasar",
            "Nama terakhir Ajeng adalah Prameswari"]
 
+def plusScore():
+    for sortir in users:
+        if users[sortir]["isLogin"] == True:
+            users[sortir]["point"] += 10
+            continue
 
 def quiz():
     score = 0
@@ -54,10 +59,7 @@ def quiz():
         if user_answer in correct_choice:
             print("Jawaban Benar!")
             score += 1
-            for sortir in users:
-                if users[sortir]["isLogin"] == True:
-                    users[sortir]["point"] += 10
-                    continue
+            plusScore()
         else:
             print("Jawaban Salah!,", answer)
     print(score, "out of", len(questions), "that is", float(score / len(questions)) * 100, "%")
@@ -301,6 +303,8 @@ def dashboard():
             hangman()
         elif inputs == '4':
             login()
+        elif inputs == '5':
+            print(users)
 
 
 login()

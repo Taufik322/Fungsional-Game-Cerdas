@@ -22,7 +22,43 @@ def quiz():
     print("Ini fungsi kuis")
 
 def suit():
-    print("Ini fungsi suit")
+    while True:
+        print()
+        print(f'{"="*7}Selamat Datang Di Batu, Gunting, Kertas!{"="*7}')
+        print("Masukkan Pilihan:")
+        print("1. Batu")
+        print("2. Gunting")
+        print("3. Kertas")
+
+        user_action = input("Pilih: ").lower()
+        possible_actions = ["batu", "gunting", "kertas"]
+        computer_action = random.choice(possible_actions)
+
+        if user_action in possible_actions:
+            print(f"\nKamu memilih {user_action}, Komputer memilih {computer_action}.\n")
+            if user_action == computer_action:
+                print(f"Kedua pemain memilih {user_action}. Seri!")
+            elif user_action == "batu":
+                if computer_action == "gunting":
+                    print("Batu menghancurikan gunting! Kamu menang!")
+                else:
+                    print("Kertas menutupi batu! Kamu kalah!.")
+            elif user_action == "kertas":
+                if computer_action == "batu":
+                    print("Kertas menutupi batu! Kamu menang!")
+                else:
+                    print("Gunting memotong kertas! Kamu kalah!.")
+            elif user_action == "gunting":
+                if computer_action == "kertas":
+                    print("Gunting memotong kertas! Kamu menang!")
+                else:
+                    print("Batu menghancurkan gunting! Kamu kalah!.")
+
+            play_again = input("Ingin bermain lagi? (y/n): ")
+            if play_again.lower() != "y":
+                break
+        else:
+            print("Salah input")
 
 def hangman():
     print("ini fungsi hangman")

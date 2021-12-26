@@ -81,16 +81,19 @@ def suit():
             elif user_action == "batu":
                 if computer_action == "gunting":
                     print("Batu menghancurkan gunting! Kamu menang!")
+                    plusScore()
                 else:
                     print("Kertas menutupi batu! Kamu kalah!.")
             elif user_action == "kertas":
                 if computer_action == "batu":
                     print("Kertas menutupi batu! Kamu menang!")
+                    plusScore()
                 else:
                     print("Gunting memotong kertas! Kamu kalah!.")
             elif user_action == "gunting":
                 if computer_action == "kertas":
                     print("Gunting memotong kertas! Kamu menang!")
+                    plusScore()
                 else:
                     print("Batu menghancurkan gunting! Kamu kalah!.")
 

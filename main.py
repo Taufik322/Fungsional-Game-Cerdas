@@ -1,4 +1,4 @@
-import  random
+import random
 
 users = {
     1: {
@@ -78,7 +78,7 @@ def suit():
                 print(f"Kedua pemain memilih {user_action}. Seri!")
             elif user_action == "batu":
                 if computer_action == "gunting":
-                    print("Batu menghancurikan gunting! Kamu menang!")
+                    print("Batu menghancurkan gunting! Kamu menang!")
                 else:
                     print("Kertas menutupi batu! Kamu kalah!.")
             elif user_action == "kertas":

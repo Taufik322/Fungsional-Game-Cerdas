@@ -25,10 +25,7 @@ def suit():
     while True:
         print()
         print(f'{"="*7}Selamat Datang Di Batu, Gunting, Kertas!{"="*7}')
-        print("Masukkan Pilihan:")
-        print("1. Batu")
-        print("2. Gunting")
-        print("3. Kertas")
+        print("Pilih Salah Satu (Batu, Gunting, Kertas")
 
         user_action = input("Pilih: ").lower()
         possible_actions = ["batu", "gunting", "kertas"]
@@ -59,6 +56,7 @@ def suit():
                 break
         else:
             print("Salah input")
+
 
 def hangman():
     print("ini fungsi hangman")

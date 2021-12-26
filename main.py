@@ -301,8 +301,6 @@ def dashboard():
             hangman()
         elif inputs == '4':
             login()
-        elif inputs == '4':
-            print(users)
 
 
 login()

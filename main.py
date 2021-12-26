@@ -1,3 +1,5 @@
+from collections import OrderedDict
+from operator import getitem
 import random
 
 users = {
@@ -268,6 +270,16 @@ def hangman():
         main()
 
 
+def scores():
+    ranks = list(sorted(users.items(), key = lambda x: getitem(x[1], 'point'), reverse=True))
+
+    print(f'{"="*7}PAPAN SKOR{"="*7}')
+    for i in range(len(ranks)):
+        print(f'{i+1}. {str(ranks[i][1]["username"])}        {str(ranks[i][1]["point"])}' )
+
+
+
+
 def login():
     print(f'\n{"="*7}PEMINJAMAN dan PEMBELIAN KENDARAAN{"="*7}')
     while True:
@@ -296,7 +308,9 @@ def dashboard():
         print("1. Kuis Pengetahuan Umum")
         print("2. Batu, Gunting, Kertas")
         print("3. Hangman")
-        print("4. Logout")
+        print("4. Users Scores")
+        print("5. Logout")
+        
         inputs = input("Pilih: ")
         if inputs == '1':
             quiz()
@@ -305,9 +319,9 @@ def dashboard():
         elif inputs == '3':
             hangman()
         elif inputs == '4':
-            login()
+            scores()
         elif inputs == '5':
-            print(users)
+            login()
 
 
 login()

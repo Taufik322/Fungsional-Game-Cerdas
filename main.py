@@ -1,4 +1,4 @@
-import random
+import  random
 
 users = {
     1: {
@@ -60,6 +60,170 @@ def suit():
         else:
             print("Salah input")
 
+def hangman():
+    print("ini fungsi hangman")
+    list_kata = [
+        'api',
+        'tas',
+        'soto',
+        'gula',
+        'hujan',
+        'motor',
+        'mobil',
+        'bohong',
+        'coklat',
+        'lelah',
+        'bangsawan',
+        'gubuk',
+        'pasar',
+        'dermawan',
+        'pramugara',
+        'koin',
+        'lembing',
+        'kesunyian',
+        'merona',
+        'downfall',
+        'climb',
+        ]
+
+    def get_kata():
+        word = random.choice(list_kata)
+        return word.upper()
+
+    def play(word):
+        progres = "_" * len(word)
+        ditebak = False
+        huruf_ditebak = []
+        kata_ditebak = []
+        percobaan = 6
+        print("Game Hangman!")
+        print(display_hangman(percobaan))
+        print(progres)
+        print("\n")
+        while not ditebak and percobaan > 0:
+            tebak = input("Silahkan ketik tebakan kata atau huruf: ").upper()
+            if len(tebak) == 1 and tebak.isalpha():
+                if tebak in huruf_ditebak:
+                    print("Anda sudah menebak huruf ini", tebak)
+                elif tebak not in word:
+                    print(tebak, "tidak ada dalam kata.")
+                    percobaan -= 1
+                    huruf_ditebak.append(tebak)
+                else:
+                    print("Good job,", tebak, "ada di dalam kata!")
+                    huruf_ditebak.append(tebak)
+                    word_as_list = list(progres)
+                    indices = [i for i, letter in enumerate(word) if letter == tebak]
+                    for index in indices:
+                        word_as_list[index] = tebak
+                    progres = "".join(word_as_list)
+                    if "_" not in progres:
+                        ditebak = True
+            elif len(tebak) == len(word) and tebak.isalpha():
+                if tebak in kata_ditebak:
+                    print("Kamu sudah menebak kata ini!", tebak)
+                elif tebak != word:
+                    print(tebak, "bukan kata yang benar!.")
+                    percobaan -= 1
+                    kata_ditebak.append(tebak)
+                else:
+                    ditebak = True
+                    progres = word
+            else:
+                print("tebakan anda tidak valid.")
+            print(display_hangman(percobaan))
+            print(progres)
+            print("\n")
+        if ditebak:
+            print("Selamat, kamu berhasil menebak katanya! kamu menang!")
+        else:
+            print("Maaf, percobaan telah habis. Kata yang benar adalah " + word + ". Maybe next time!")
+
+    def display_hangman(tries):
+        stages = [  # final state: head, torso, both arms, and both legs
+            """
+               --------
+               |      |
+               |      O
+               |     \\|/
+               |      |
+               |     / \\
+               -
+            """,
+            # head, torso, both arms, and one leg
+            """
+               --------
+               |      |
+               |      O
+               |     \\|/
+               |      |
+               |     / 
+               -
+            """,
+            # head, torso, and both arms
+            """
+               --------
+               |      |
+               |      O
+               |     \\|/
+               |      |
+               |      
+               -
+            """,
+            # head, torso, and one arm
+            """
+               --------
+               |      |
+               |      O
+               |     \\|
+               |      |
+               |     
+               -
+            """,
+            # head and torso
+            """
+               --------
+               |      |
+               |      O
+               |      |
+               |      |
+               |     
+               -
+            """,
+            # head
+            """
+               --------
+               |      |
+               |      O
+               |    
+               |      
+               |     
+               -
+            """,
+            # initial empty state
+            """
+               --------
+               |      |
+               |      
+               |    
+               |      
+               |     
+               -
+            """
+        ]
+        return stages[tries]
+
+    def main():
+        word = get_kata()
+        play(word)
+        while input("Play Again? (Y/N) ").upper() == "Y":
+            word = get_kata()
+            play(word)
+
+    if __name__ == "__main__":
+        main()
+
+
 def login():
     print(f'\n{"="*7}PEMINJAMAN dan PEMBELIAN KENDARAAN{"="*7}')
     count = 0
@@ -88,13 +252,16 @@ def dashboard():
         print(f'{"="*7}Selamat Datang Di Hagi!{"="*7}')
         print("1. Kuis Pengetahuan Umum")
         print("2. Batu, Gunting, Kertas")
-        print("3. Logout")
+        print("3. Hangman")
+        print("4. Logout")
         inputs = input("Pilih: ")
         if inputs == '1':
             quiz()
         elif inputs == '2':
             suit()
         elif inputs == '3':
+            hangman()
+        elif inputs == '4':
             login()
 
 

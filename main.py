@@ -181,6 +181,7 @@ def hangman():
             print("\n")
         if ditebak:
             print("Selamat, kamu berhasil menebak katanya! kamu menang!")
+            plusScore()
         else:
             print("Maaf, percobaan telah habis. Kata yang benar adalah " + word + ". Maybe next time!")
 

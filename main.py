@@ -273,7 +273,7 @@ def scores():
 
 
 def login():
-    print(f'\n{"="*7}PEMINJAMAN dan PEMBELIAN KENDARAAN{"="*7}')
+    print(f'\n{"="*7}Selamat Datang di Game Hagi{"="*7}')
     while True:
         akun = input("Masukkan username : ")
         password = input("Masukkan password : ")
@@ -302,6 +302,7 @@ def dashboard():
         print("3. Hangman")
         print("4. Users Scores")
         print("5. Logout")
+        print("6. Keluar")
         
         inputs = input("Pilih: ")
         if inputs == '1':
@@ -314,6 +315,11 @@ def dashboard():
             scores()
         elif inputs == '5':
             login()
+        elif inputs == '6':
+            print("Terimakasih Telah Bermain!")
+            exit()
+        else:
+            print("Input Salah!")
 
 
 login()

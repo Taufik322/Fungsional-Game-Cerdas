@@ -106,7 +106,7 @@ def suit():
 
 
 def hangman():
-    print("ini fungsi hangman")
+    print("Selamat datang di game Hangman!")
     list_kata = [
         'api',
         'tas',
@@ -158,8 +158,8 @@ def hangman():
                     print("Good job,", tebak, "ada di dalam kata!")
                     huruf_ditebak.append(tebak)
                     word_as_list = list(progres)
-                    indices = [i for i, letter in enumerate(word) if letter == tebak]
-                    for index in indices:
+                    indeks = [i for i, letter in enumerate(word) if letter == tebak]
+                    for index in indeks:
                         word_as_list[index] = tebak
                     progres = "".join(word_as_list)
                     if "_" not in progres:
@@ -196,7 +196,6 @@ def hangman():
                |     / \\
                -
             """,
-            # head, torso, both arms, and one leg
             """
                --------
                |      |
@@ -206,7 +205,6 @@ def hangman():
                |     / 
                -
             """,
-            # head, torso, and both arms
             """
                --------
                |      |
@@ -216,7 +214,6 @@ def hangman():
                |      
                -
             """,
-            # head, torso, and one arm
             """
                --------
                |      |
@@ -226,7 +223,6 @@ def hangman():
                |     
                -
             """,
-            # head and torso
             """
                --------
                |      |
@@ -236,7 +232,6 @@ def hangman():
                |     
                -
             """,
-            # head
             """
                --------
                |      |
@@ -246,7 +241,6 @@ def hangman():
                |     
                -
             """,
-            # initial empty state
             """
                --------
                |      |

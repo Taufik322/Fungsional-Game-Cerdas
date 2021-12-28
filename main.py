@@ -1,3 +1,8 @@
+# Ajeng Cahyaning Prameswari 201910370311323
+# Muhammad Taufik Hidayat 201910370311322
+# Nizar Baihaqi 201910370311308
+# Farkhan Hamzah Firdaus 201910370311312
+
 from operator import getitem
 import random
 

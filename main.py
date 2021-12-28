@@ -51,6 +51,16 @@ answers = ["1 + 1 adalah 2",
            "Nama presiden pertaman negara Indonesia adalah Soekarno",
            "Bahasa pemrograman Python tidak memerlukan titik koma"]
 
+def decorator_with_arguments(function):
+    def wrapper_accepting_arguments(arg1):
+        print(f'{arg1} Mengerjakan!, Semoga Beruntung :)')
+        function(arg1)
+    return wrapper_accepting_arguments
+
+@decorator_with_arguments
+def welcome(hi):
+    print(f'{hi} Datang di Permainan Hagi Quis!')
+
 def plusScore():
     for sortir in users:
         if users[sortir]["isLogin"] == True:
@@ -58,6 +68,7 @@ def plusScore():
             continue
 
 def quiz():
+    welcome("Selamat")
     score = 0
     for question, choices, correct_choice, answer in zip(questions, answer_choices, correct_choices, answers):
         print(question)
